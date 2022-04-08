@@ -1,0 +1,16 @@
+# action.yaml
+name: "Custom Github Action"
+description: "Read a file of a repo"
+inputs:
+  file_name:
+    description: "filename to read"
+    required: true
+    default: pubspec.yml
+outputs:
+  version:
+    description: "Return version mentioned in pubspec file"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.file_name}}
